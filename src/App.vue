@@ -7,16 +7,30 @@
 				<v-toolbar-items class="hidden-sm-and-down">
 					<v-btn to="/" flat>Home</v-btn>
 					<v-btn to="/chat" flat>Chat</v-btn>
-					<v-btn to="/about" flat>About</v-btn>
+					<v-btn to="/messages" flat>Messages</v-btn>
+					<v-btn to="/login" flat>LogIn</v-btn>
+					<v-btn to="/sign_in" flat>SignIn</v-btn>
 				</v-toolbar-items>
 			</v-toolbar>
 			<v-content>
 				<router-view></router-view>
 			</v-content>
-			<v-footer app></v-footer>
+			<v-footer app>
+				<v-progress-linear v-if="showLoader" :indeterminate="true"></v-progress-linear>
+			</v-footer>
 		</v-app>
 	</div>
 </template>
+<script lang="ts">
+	import { Component, Vue } from 'vue-property-decorator';
+
+	@Component
+	export default class App extends Vue {
+		get showLoader() {
+			return this.$store.state.loading;
+		}
+	}
+</script>
 <style lang="stylus">
 	#app
 		font-family 'Avenir', Helvetica, Arial, sans-serif

@@ -3,6 +3,9 @@ import Router from "vue-router"
 import Home from "./views/Home.vue"
 import About from "./views/About.vue"
 import Chat from "./views/Chat.vue"
+import LoIn from "./views/Login.vue"
+import SignIn from "./views/Signin.vue"
+import Messages from "./views/Messages.vue"
 
 Vue.use(Router);
 
@@ -24,6 +27,21 @@ export default new Router({
 			path: "/chat",
 			name: "chat",
 			component: Chat
+		},
+		{
+			path: "/sign_in",
+			name: "signin",
+			component: SignIn
+		},
+		{
+			path: "/login",
+			name: "login",
+			component: LoIn
+		},
+		{
+			path: "/messages",
+			name: "messages",
+			component: Messages
 		}
 	]
 })
